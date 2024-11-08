@@ -24,13 +24,13 @@ int main() {
     int f[n], ans[n], ind = 0;
 
     for (k = 0; k < n; k++) {
-        f[k] = 0;
+        f[k] = 0; // This array keeps track of processes that have completed. Initially, all entries are set to 0 (indicating incomplete processes).
     }
 
     int need[n][m];
     for (i = 0; i < n; i++) {
         for (j = 0; j < m; j++)
-            need[i][j] = max[i][j] - alloc[i][j];
+            need[i][j] = max[i][j] - alloc[i][j]; //the additional resources each process might need to complete
     }
 
     int y = 0;
@@ -62,3 +62,9 @@ int main() {
   
     return 0;
 }
+
+The algorithm uses a safety check loop to determine a safe sequence where resources can be allocated to each process without leading to deadlock.
+Flag Array (f): This array keeps track of processes that have completed. Initially, all entries are set to 0 (indicating incomplete processes).
+The outer loop runs through each process to determine whether it can finish with the current available resources. If it can, it’s marked as safe, and its allocated resources are added back to avail.
+
+Once the algorithm finds a safe sequence, it stores this sequence in the ans array and prints the order of processes that can safely run to completion.

@@ -1,10 +1,10 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include<stdio.h> // is included for standard input and output functions (printf, scanf).
+#include<stdlib.h> // is included for the abs function, which calculates the absolute difference.
 
 int main() {
     int RQ[100], i, n, TotalHeadMoment = 0, initial, count = 0;
     
-    printf("Enter the number of Requests\n");
+    printf("Enter the number of Disk Requests\n");
     scanf("%d", &n);
     
     printf("Enter the Requests sequence\n");
@@ -17,13 +17,13 @@ int main() {
     // Logic for SSTF disk scheduling
     /* loop will execute until all process is completed */
     while(count != n) {
-        int min = 1000, d, index;
+        int min = 1000, d, index; // d calculates the distance between the current head position and each request RQ[i]
         
         for(i = 0; i < n; i++) {
             d = abs(RQ[i] - initial);
             if(min > d) {
                 min = d;
-                index = i;
+                index = i; // If d is smaller than min, min is updated with d, and index is set to i.
             }
         }
         

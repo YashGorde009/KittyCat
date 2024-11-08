@@ -65,6 +65,7 @@ int main(int argc,char *argv[])
 }
 
  }
+ 
 /*
 
 [kiosk@foundation5 ~]$ gcc s2a.c -o first
